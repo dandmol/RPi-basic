@@ -4,7 +4,7 @@ import time
 # Usamos numeración BCM (número GPIO, no número de pin físico)
 GPIO.setmode(GPIO.BCM)
 
-# --- DECLARACIÓN DE PINES (cada segmento) ---
+# DECLARACIÓN DE PINES (cada segmento)
 # Orden: a, b, c, d, e, f, g
 SEG_A = 5
 SEG_B = 6
@@ -23,12 +23,12 @@ SEGMENTS = [SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G]
 ON = GPIO.LOW
 OFF = GPIO.HIGH
 
-# --- CONFIGURACIÓN DE LOS PINES ---
+# CONFIGURACIÓN DE LOS PINES
 for pin in SEGMENTS:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, OFF)   # empezamos con todo apagado
 
-# --- TABLA DE DÍGITOS (ESTILO ARDUINO) ---
+# TABLA DE DÍGITOS (ESTILO ARDUINO)
 # 1 = segmento encendido, 0 = apagado
 # Orden de columnas: a, b, c, d, e, f, g
 DIGITS = [
@@ -73,3 +73,4 @@ finally:
     for pin in SEGMENTS:
         GPIO.output(pin, OFF)
     GPIO.cleanup()
+
