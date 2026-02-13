@@ -27,21 +27,20 @@ for pin in SEGMENTS:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, OFF)   # empezamos con todo apagado
 
+# APAGA TODOS LOS SEGUMENTOS
 def clear():
-    """Apaga todos los segmentos."""
     for pin in SEGMENTS:
         GPIO.output(pin, OFF)
 
 # MANEJO DE LOS PINES (dibujar dígitos)
-
+# Muestra el dígito 1 (segmentos b y c)
 def show_1():
-    """Muestra el dígito 1 (segmentos b y c)."""
     clear()
     GPIO.output(SEG_B, ON)
     GPIO.output(SEG_C, ON)
 
+# Muestra el dígito 2 (segmentos a, b, d, e, g)
 def show_2():
-    """Muestra el dígito 2 (segmentos a, b, d, e, g)."""
     clear()
     GPIO.output(SEG_A, ON)
     GPIO.output(SEG_B, ON)
@@ -50,7 +49,6 @@ def show_2():
     GPIO.output(SEG_G, ON)
 
 # MAIN
-
 try:
     print("Mostrando 1 y 2 alternando cada 1 segundo. Ctrl+C para salir.")
     while True:
@@ -66,3 +64,4 @@ except KeyboardInterrupt:
 finally:
     clear()
     GPIO.cleanup()
+
